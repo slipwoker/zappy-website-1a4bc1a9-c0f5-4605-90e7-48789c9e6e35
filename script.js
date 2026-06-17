@@ -1435,10 +1435,55 @@ window.onload = function() {
 })();
 
 
-/* ZAPPY_BLOCK_RESIZE_BRIDGE */
+/* ZAPPY_BLOCK_RUNTIME_V2 */
 (function(){
-  if (window.__zappyBlockBridgeInstalled) return;
-  window.__zappyBlockBridgeInstalled = true;
+  if (window.__zappyBlockRuntimeInstalled) return;
+  window.__zappyBlockRuntimeInstalled = true;
+  function b64ToUtf8(b64){
+    try {
+      var bin = atob(String(b64 || ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new TextDecoder('utf-8').decode(bytes);
+    } catch (e) { return ''; }
+  }
+  function hydrate(section){
+    try {
+      if (!section || section.getAttribute('data-zappy-hydrated') === '1') return;
+      var frame = section.querySelector('iframe[data-zappy-block-frame]');
+      if (!frame) return;
+      var doc = b64ToUtf8(section.getAttribute('data-zappy-block-doc'));
+      if (!doc) return;
+      frame.setAttribute('srcdoc', doc);
+      section.setAttribute('data-zappy-hydrated', '1');
+    } catch (e) {}
+  }
+  function hydrateAll(root){
+    var scope = (root && root.querySelectorAll) ? root : document;
+    var nodes = scope.querySelectorAll('section[data-zappy-block][data-zappy-block-doc]');
+    for (var i = 0; i < nodes.length; i++) hydrate(nodes[i]);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ hydrateAll(document); });
+  } else {
+    hydrateAll(document);
+  }
+  // Catch blocks inserted later (editor live-insert / SPA navigation).
+  try {
+    var mo = new MutationObserver(function(muts){
+      for (var i = 0; i < muts.length; i++){
+        var added = muts[i].addedNodes || [];
+        for (var j = 0; j < added.length; j++){
+          var n = added[j];
+          if (!n || n.nodeType !== 1) continue;
+          if (n.matches && n.matches('section[data-zappy-block][data-zappy-block-doc]')) hydrate(n);
+          if (n.querySelectorAll) hydrateAll(n);
+        }
+      }
+    });
+    mo.observe(document.documentElement || document.body, { childList: true, subtree: true });
+  } catch (e) {}
+  // Auto-size block iframes from their inner content height.
   window.addEventListener('message', function(e){
     var d = e && e.data;
     if (!d || d.__zappyBlock !== true || d.type !== 'resize') return;
