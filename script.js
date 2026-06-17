@@ -1435,6 +1435,21 @@ window.onload = function() {
 })();
 
 
+/* ZAPPY_BLOCK_RESIZE_BRIDGE */
+(function(){
+  if (window.__zappyBlockBridgeInstalled) return;
+  window.__zappyBlockBridgeInstalled = true;
+  window.addEventListener('message', function(e){
+    var d = e && e.data;
+    if (!d || d.__zappyBlock !== true || d.type !== 'resize') return;
+    if (typeof d.id !== 'string') return;
+    var frame = document.querySelector('iframe[data-zappy-block-frame="' + d.id.replace(/"/g, '') + '"]');
+    var h = parseInt(d.height, 10);
+    if (frame && h > 0 && h < 20000) frame.style.height = (h + 2) + 'px';
+  });
+})();
+
+
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
   try {
