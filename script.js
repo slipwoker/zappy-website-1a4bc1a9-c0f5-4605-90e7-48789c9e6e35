@@ -1494,6 +1494,81 @@ window.onload = function() {
   });
 })();
 
+/* ZAPPY_CUSTOM_JS_START:915194fb45e1 */
+(function () {
+  function __zappyCustomInit() {
+    try {
+(function() {
+  const hero = document.querySelector('.index-hero-section');
+  if (!hero) return;
+  
+  const images = hero.querySelectorAll('.hero-carousel-bg');
+  const dots = hero.querySelectorAll('.hero-carousel-dot');
+  
+  if (images.length < 2) return;
+  
+  let currentIndex = 0;
+  const totalSlides = images.length;
+  let intervalId = null;
+  
+  function goToSlide(index) {
+    // Remove active from current
+    images[currentIndex].classList.remove('active');
+    if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+    
+    // Set new index (wrap around)
+    currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+    
+    // Add active to new
+    images[currentIndex].classList.add('active');
+    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+  }
+  
+  function startCarousel() {
+    stopCarousel();
+    intervalId = setInterval(function() {
+      goToSlide(currentIndex + 1);
+    }, 3000);
+  }
+  
+  function stopCarousel() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+  
+  // Click handlers for dots
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-dot-index'));
+      if (!isNaN(idx)) {
+        goToSlide(idx);
+        startCarousel(); // restart timer on manual click
+      }
+    });
+  });
+  
+  // Ensure only first image is active on load
+  images.forEach(function(img, i) {
+    if (i === 0) img.classList.add('active');
+    else img.classList.remove('active');
+  });
+  
+  startCarousel();
+})();
+    } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) { console.warn('[zappy-custom-js]', e); }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', __zappyCustomInit);
+  } else {
+    __zappyCustomInit();
+  }
+})();
+/* ZAPPY_CUSTOM_JS_END:915194fb45e1 */
+
 
 /* ZAPPY_PUBLISHED_LIGHTBOX_RUNTIME */
 (function(){
