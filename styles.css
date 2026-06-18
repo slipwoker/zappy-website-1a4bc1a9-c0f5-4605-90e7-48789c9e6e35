@@ -2547,12 +2547,11 @@ html[dir="rtl"] .site-footer .footer-col:nth-child(3) .footer-contact li {
 html[dir="rtl"] .footer-contact .contact-icon { order: 0 !important; }
 html[dir="rtl"] .footer-contact .contact-text { order: 1 !important; }
 html[dir="rtl"] .footer-contact li > a { flex-direction: row !important; }
-/* index-hero */
 .index-hero-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: visible;
+  overflow: hidden;
   background-color: #0D0D0D;
   display: flex;
   align-items: center;
