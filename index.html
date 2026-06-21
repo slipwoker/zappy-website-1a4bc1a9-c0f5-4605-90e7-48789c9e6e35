@@ -1457,6 +1457,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <input type="text" id="contact-business" name="business" class="index-contact-input" placeholder="השם של העסק שלכם" autocomplete="organization">
           </div>
           <div class="index-contact-field">
+            <label for="contact-industry" class="index-contact-label">תחום התעשייה</label>
+            <select id="contact-industry" name="industry" class="index-contact-input">
+              <option value="" disabled="" selected="">בחרו תחום...</option>
+              <option value="metal">מתכת ועיבוד שבבי</option>
+              <option value="plastics">פלסטיק וגומי</option>
+              <option value="food">מזון ומשקאות</option>
+              <option value="textile">טקסטיל והלבשה</option>
+              <option value="wood">עץ ורהיטים</option>
+              <option value="construction">בנייה וחומרי בניין</option>
+              <option value="electronics">אלקטרוניקה וחשמל</option>
+              <option value="printing">דפוס ואריזות</option>
+              <option value="chemical">כימיה ופרמצבטיקה</option>
+              <option value="other">אחר</option>
+            </select>
+          </div>
+          <div class="index-contact-field">
+            <label for="contact-employees" class="index-contact-label">מספר עובדים</label>
+            <select id="contact-employees" name="employees" class="index-contact-input">
+              <option value="" disabled="" selected="">בחרו טווח...</option>
+              <option value="1-10">1–10 עובדים</option>
+              <option value="11-50">11–50 עובדים</option>
+              <option value="51-150">51–150 עובדים</option>
+              <option value="151-500">151–500 עובדים</option>
+              <option value="500+">500+ עובדים</option>
+            </select>
+          </div>
+          <div class="index-contact-field">
             <label for="contact-email" class="index-contact-label">דואר אלקטרוני</label>
             <input type="email" id="contact-email" name="email" class="index-contact-input" placeholder="israel@company.co.il" required="" autocomplete="email">
           </div>
@@ -1465,8 +1492,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <input type="tel" id="contact-phone" name="phone" class="index-contact-input" placeholder="05X-XXXXXXX" required="" autocomplete="tel">
           </div>
           <div class="index-contact-field">
-            <label for="contact-message" class="index-contact-label">במה נוכל לעזור?</label>
-            <textarea id="contact-message" name="message" class="index-contact-input index-contact-textarea" placeholder="ספרו לנו בקצרה על העסק והאתגר שלכם..." rows="4" required=""></textarea>
+            <label for="contact-message" class="index-contact-label">איזה אתגר עסקי תרצו לפתור?</label>
+            <textarea id="contact-message" name="message" class="index-contact-input index-contact-textarea" placeholder="תארו בקצרה את האתגר המרכזי בעסק — למשל: עלויות ייצור גבוהות, חוסר יעילות תפעולית, קושי בגיוס כוח אדם, מרווחים נמוכים..." rows="4" required=""></textarea>
+          </div>
+          <div class="index-contact-field">
+            <label for="contact-source" class="index-contact-label">איך שמעתם עלינו?</label>
+            <select id="contact-source" name="source" class="index-contact-input">
+              <option value="" disabled="" selected="">בחרו אפשרות...</option>
+              <option value="google">חיפוש בגוגל</option>
+              <option value="recommendation">המלצה של לקוח / קולגה</option>
+              <option value="social">רשתות חברתיות (פייסבוק, אינסטגרם, יוטיוב)</option>
+              <option value="whatsapp">וואטסאפ</option>
+              <option value="conference">כנס / אירוע מקצועי</option>
+              <option value="article">כתבה או פרסום</option>
+              <option value="other">אחר</option>
+            </select>
           </div>
           <div class="privacy-consent">
             <label class="privacy-consent-label">
