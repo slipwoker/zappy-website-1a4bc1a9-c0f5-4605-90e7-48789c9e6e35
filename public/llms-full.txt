@@ -2,13 +2,13 @@
 
 A B2B-focused business targeting low-tech industry owners, factory operators, and traditional industrial businesses. The brand serves a practical, results-driven audience that values reliability, efficiency, and straightforward solutions over high-tech complexity. The tone is professional and grounded, appealing to hands-on business owners in manufacturing and industrial sectors.
 
-Source: https://example.com
+Source: https://eran-shomron-consultants.zappy5.app
 
 ---
 
 ## ערן שומרון יועצים — ערן שומרון יועצים
 
-URL: https://example.com
+URL: https://eran-shomron-consultants.zappy5.app
 Description: A B2B-focused business targeting low-tech industry owners, factory operators, and traditional industrial businesses. The brand serves a practical, results-drive
 
 ערן שומרון יועצים — ערן שומרון יועצים
@@ -820,7 +820,7 @@ miri@e-effective.co.il
 
 ## מדיניות פרטיות
 
-URL: https://example.com/privacy
+URL: https://eran-shomron-consultants.zappy5.app/privacy
 Description: מדיניות הפרטיות שלנו - כיצד אנו אוספים, משתמשים ומגנים על המידע שלכם
 
 מדיניות פרטיות
@@ -1089,7 +1089,7 @@ Description: מדיניות הפרטיות שלנו - כיצד אנו אוספי
 
 ## הצהרת נגישות
 
-URL: https://example.com/accessibility
+URL: https://eran-shomron-consultants.zappy5.app/accessibility
 Description: הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית
 
 הצהרת נגישות
@@ -1367,7 +1367,7 @@ Description: הצהרת הנגישות שלנו - מחויבותנו לנגיש�
 
 ## תנאי שימוש
 
-URL: https://example.com/terms
+URL: https://eran-shomron-consultants.zappy5.app/terms
 Description: תנאי השימוש באתר - הזכויות והחובות של המשתמשים
 
 תנאי שימוש
